@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %} Change User Profile {% endblock %}
+
+{% block body %}
+
+{% if updated %}
+
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>You have successfully updated your profile!</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+{% endif %}
+
+<h2>Update Your Profile</h2>
+<form method="post">
+    {{ form|crispy}}
+    {% csrf_token %}
+    <br>
+    <button type="submit" class = "btn btn-primary btn-sm">Update</button>
+</form>
+
+
+{% endblock %}
